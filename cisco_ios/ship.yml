@@ -1,0 +1,31 @@
+---
+ - name: Run show commands routers
+   hosts: routers
+   gather_facts: false
+
+   tasks:
+
+       - name: run sh ip int br | ex unass
+         ios_command:
+             commands: 
+              - show ip int br
+              - show ip route
+         register: sh_result
+
+       - name: debug
+         debug: var=sh_result.stdout_lines
+
+ - name: Run show commands switches
+   hosts: switches
+   gather_facts: false
+
+   tasks:
+
+       - name: run sh vlan
+         ios_command:
+             commands: show vlan
+         register: sh_res
+
+       - name: debug
+         debug: var=sh_res.stdout_lines
+

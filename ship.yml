@@ -1,9 +1,0 @@
----
- - name: Run commands
-   hosts: routers
-   gather_facts: false
-
-   tasks:
-
-       - name: run sh ip int br | ex unass
-         raw: sh ip int br
