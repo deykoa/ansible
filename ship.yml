@@ -5,5 +5,5 @@
 
    tasks:
 
-       - name: run sh ip int br
+       - name: run sh ip int br | ex unass
          raw: sh ip int br
