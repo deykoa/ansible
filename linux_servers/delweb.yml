@@ -1,0 +1,14 @@
+---
+- name: del apaches
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: check limux version
+    debug: var=ansible_os_family
+
+
+  - name: dell apache
+    yum: state=removed
+
+

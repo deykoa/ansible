@@ -1,0 +1,22 @@
+---
+
+- name: Install apaches
+  hosts: all
+  become: yes
+
+
+  vars:
+    scr : ./index.html
+    dst : /var/www/html
+
+  tasks:
+  - name: check limux version
+    debug: var=ansible_os_family
+
+  - block: #redhat
+
+      - name: Intall apache
+        yum: name=httpd state=latest
+
+      - name: Satart apache
+        service: name=httpd state=started enabled=yes
