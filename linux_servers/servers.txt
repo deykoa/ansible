@@ -1,3 +1,4 @@
 
 [linux_servers]
 54.93.162.229
+35.159.19.106  ansible_user=ubuntu

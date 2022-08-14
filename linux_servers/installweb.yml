@@ -14,9 +14,21 @@
     debug: var=ansible_os_family
 
   - block: #redhat
-
       - name: Intall apache
         yum: name=httpd state=latest
 
       - name: Satart apache
         service: name=httpd state=started enabled=yes
+
+    when: ansible_os_family=='RedHat'
+
+  - block: #debian
+
+      - name: Install apache
+        apt: name=apache2 state=latest 
+
+      - name: start apache
+        service: name=apache2 state=started enabled=yes
+
+    when: ansible_os_family=='Debian'
+

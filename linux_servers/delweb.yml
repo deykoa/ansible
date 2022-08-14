@@ -9,6 +9,6 @@
 
 
   - name: dell apache
-    yum: state=removed
+    yum: name=httpd state=removed
 
 
