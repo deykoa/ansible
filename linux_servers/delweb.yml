@@ -4,11 +4,17 @@
   become: yes
 
   tasks:
-  - name: check limux version
-    debug: var=ansible_os_family
-
 
   - name: dell apache
     yum: name=httpd state=removed
+    
+    when: ansible_os_family=='RedHat'
 
+    
 
+  - name: dell debian
+    apt: name=apache2 state=absent
+    
+    when: ansible_os_family=='Debian'
+
+    
